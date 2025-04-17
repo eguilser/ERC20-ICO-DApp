@@ -194,16 +194,12 @@ This allows the sale contract to transfer tokens on behalf of the owner.
 
 ## 📸 Screenshots
 
-- ✅ Connect Wallet  
+- ✅ Connect Wallet
+  ![erc20-ico-project_front1](https://github.com/user-attachments/assets/bb0e50aa-5fb4-49b1-a1bb-2a76154d415a)
+
 - ✅ View Token Balance  
-- ✅ Purchase Tokens Flow  
-
-📌 Add your screenshots here using Markdown syntax if uploading to GitHub:
-
-```markdown
-![Connect Wallet](screenshots/connect-wallet.png)
-![Token Info](screenshots/token-info.png)
-![Purchase Tokens](screenshots/purchase-tokens.png)
+- ✅ Purchase Tokens Flow
+-  ![erc20-ico-project_compra](https://github.com/user-attachments/assets/115d9974-4424-4042-b777-72866d1fccea)
 ```
 
 ## 🔍 Verify on Hardhat Console
