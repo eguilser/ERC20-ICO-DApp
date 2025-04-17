@@ -1,4 +1,4 @@
-# 🔥 **ERC20 ICO DApp**
+# 🔥 **ERC-20 ICO DApp**
 
 A complete decentralized application (DApp) that simulates an Initial Coin Offering (ICO) for an ERC‑20 token. Built with **Hardhat**, **Solidity**, **React**, **Ethers.js**, **Bootstrap** and **MetaMask**.
 
