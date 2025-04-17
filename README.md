@@ -236,7 +236,7 @@ See the LICENSE file for more details.
 
 **Name:** Sergio Eguíluz  
 **Email:** sergioeguiluz614@gmail.com  
-**GitHub:** [@your-username](https://github.com/your-username)
+**GitHub:** [eguilser]([https://github.com/your-username])
 
 ---
 
