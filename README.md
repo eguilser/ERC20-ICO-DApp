@@ -4,49 +4,55 @@ Welcome to the **ERC20 ICO DApp**, a decentralized application that simulates an
 
 ---
 
-## 📚 **Table of Contents**
-1. [Key Features](#-key-features)
-2. [Technologies Used](#-technologies-used)
-3. [Project Structure](#-project-structure)
-4. [Setup & Installation](#%EF%B8%8F-setup--installation)
-5. [Deployment & Approval](#-deploy--approve)
-6. [Frontend Setup](#%EF%B8%8F-frontend-react-app)
-7. [Usage Flow](#-usage-flow)
-8. [Hardhat Console Verification](#-verify-on-hardhat-console)
-9. [Author](#-author)
-10. [License](#-license)
-11. [Contributing](#-contributing)
+## 📃 Table of Contents
 
----
+- [Description](#-description)
+- [Technologies Used](#-technologies-used)
+- [Project Structure](#-project-structure)
+- [Setup Guide](#-setup-guide)
+  - [Backend Setup](#-1-backend-setup)
+  - [Frontend Setup](#-2-frontend-setup)
+- [🚀 Deployment](#-deployment)
+- [Available Scripts](#-available-scripts)
+- [🎯 Usage](#-usage)
+- [📸 Screenshots](#-screenshots)
+- [🔍 Verify on Hardhat Console](#-verify-on-hardhat-console)
+- [📅 Gitignore](#-gitignore)
+- [📄 License](#-license)
+- [👤 Author](#-author)
 
-## 🚀 **Key Features**
+## 📝 Description
 
-- **ERC-20 Token**: Standard token contract via OpenZeppelin  
-- **Token Sale Contract**: Buy tokens at a fixed rate with Ether  
-- **Automated Tests**: Hardhat + Mocha/Chai test coverage  
-- **Approval Flow**: Demonstrates `approve`/`transferFrom` pattern  
-- **React Frontend**: Intuitive UI with React & Bootstrap  
-- **MetaMask Integration**: Connect wallet, view balances, purchase tokens  
+This project is a smart contract-based token sale system where users can buy ERC-20 tokens in exchange for Ether. It uses two main contracts:
 
----
+- `MyToken`: The ERC-20 token.
+- `TokenSale`: Handles the token sale process.
 
-## 🛠️ **Technologies Used**
+The frontend provides an intuitive interface to interact with the blockchain using MetaMask.
 
-| Layer             | Technology               |
-|-------------------|--------------------------|
-| Smart Contracts   | Solidity, OpenZeppelin   |
-| Development Tool  | Hardhat                  |
-| Testing           | Mocha, Chai              |
-| Frontend          | React (TypeScript)       |
-| Blockchain Library| Ethers.js                |
-| UI Framework      | React Bootstrap         |
-| Wallet Integration| MetaMask                |
+## 🛠️ Technologies Used
 
----
+**Backend:**
+
+- Solidity
+- Hardhat
+- Mocha / Chai
+
+**Frontend:**
+
+- React
+- Bootstrap
+- Ethers.js
+- MetaMask
+
+**Tools:**
+
+- Node.js
+- Visual Studio Code
 
 ## 📂 Project Structure
 
-```plaintext
+```
 erc20-ico-project/
 ├── contracts/
 │   ├── MyToken.sol          # ERC‑20 token contract
@@ -72,92 +78,173 @@ erc20-ico-project/
     │   └── index.js
     ├── package.json             # Frontend deps & scripts
     └── .env                     # Frontend env vars (REACT_APP_...)
+```
 
-⚙️ Setup & Installation
-1. Clone the Repository
-bash
-Copy
+## ⚙️ Setup Guide
+
+### 🔹 1. Backend Setup
+
+✅ Clone the repository:
+
+```bash
 git clone https://github.com/your-username/erc20-ico-project.git
 cd erc20-ico-project
-2. Install Backend Dependencies
-bash
-Copy
+```
+
+✅ Install dependencies:
+
+```bash
 npm install
-3. Compile & Test Contracts
-bash
-Copy
+```
+
+✅ Compile & test contracts:
+
+```bash
 npx hardhat compile
 npx hardhat test
-4. Start Local Blockchain
-bash
-Copy
+```
+
+✅ Start local Hardhat node:
+
+```bash
 npx hardhat node
-🌐 Deploy & Approve
-Deploy Contracts (in a new terminal)
-bash
-Copy
-npx hardhat run scripts/deploy.js --network localhost
-→ Copy the printed contract addresses for MyToken and TokenSale.
+```
 
-Grant Allowance to TokenSale
-bash
-Copy
-npx hardhat run scripts/approve.js --network localhost
-→ Confirms TokenSale can transfer tokens on your behalf.
+The JSON-RPC endpoint will be available at:  
+`http://127.0.0.1:8545`
 
-⚛️ Frontend (React App)
-1. Navigate to Frontend
-bash
-Copy
+### 🔹 2. Frontend Setup
+
+✅ Navigate to the frontend directory:
+
+```bash
 cd my-dapp
+```
+
+✅ Install frontend dependencies:
+
+```bash
 npm install
-2. Configure Environment Variables
-Create .env file with:
+```
 
-ini
-Copy
-REACT_APP_MY_TOKEN_ADDRESS=0xYourTokenAddress
-REACT_APP_TOKEN_SALE_ADDRESS=0xYourSaleAddress
+✅ Configure environment variables:
+
+Create a `.env` file inside `my-dapp/` and add:
+
+```env
+REACT_APP_MY_TOKEN_ADDRESS=0xe7f1725e7734ce288f8367e1bb143e90bb3f0512
+REACT_APP_TOKEN_SALE_ADDRESS=0x9fe46736679d2d9a65f0992f2272de9f3c7fa6e0
 REACT_APP_TOKEN_RATE=1000
-→ Use lowercase addresses. Restart server after changes.
+```
 
-3. Run the DApp
-bash
-Copy
+📌 *Note: Always use lowercase addresses and restart the dev server after editing the .env file.*
+
+✅ Run the React app:
+
+```bash
 npm start
-👉 Open http://localhost:3000
+```
 
-🎯 Usage Flow
-Connect Wallet: Click "Connect MetaMask" and approve connection
+The app will be available at:  
+`http://localhost:3000`
 
-View Balances: See your ETH and token balances
+## 🚀 Deployment
 
-Buy Tokens: Enter ETH amount and confirm transaction
+### 🔹 Deploy Contracts (in a new terminal with Hardhat node running):
 
-Check Balance: View updated token balance after purchase
+```bash
+npx hardhat run scripts/deploy.js --network localhost
+```
 
-🔍 Verify On Hardhat Console
-bash
-Copy
+Copy the printed contract addresses for `MyToken` and `TokenSale`.
+
+### 🔹 Grant Allowance:
+
+```bash
+npx hardhat run scripts/approve.js --network localhost
+```
+
+This allows the sale contract to transfer tokens on behalf of the owner.
+
+## 🛠️ Available Scripts
+
+**Backend (project root):**
+
+- `npx hardhat compile` — Compile contracts
+- `npx hardhat test` — Run tests
+- `npx hardhat node` — Start local blockchain
+- `npx hardhat run scripts/deploy.js` — Deploy contracts
+- `npx hardhat run scripts/approve.js` — Grant token allowance
+
+**Frontend (`my-dapp/`):**
+
+- `npm start` — Launch development server
+- `npm run build` — Build React app for production
+
+## 🎯 Usage
+
+1. Start Hardhat node (see **Backend Setup**).
+2. Deploy and approve contracts (see **Deployment**).
+3. Run the React DApp (see **Frontend Setup**).
+4. Connect MetaMask to `http://127.0.0.1:8545` (Chain ID: `31337`).
+5. Interact via the UI:  
+   - Connect your wallet  
+   - View token balance  
+   - Purchase tokens
+
+## 📸 Screenshots
+
+- ✅ Connect Wallet  
+- ✅ View Token Balance  
+- ✅ Purchase Tokens Flow  
+
+📌 Add your screenshots here using Markdown syntax if uploading to GitHub:
+
+```markdown
+![Connect Wallet](screenshots/connect-wallet.png)
+![Token Info](screenshots/token-info.png)
+![Purchase Tokens](screenshots/purchase-tokens.png)
+```
+
+## 🔍 Verify on Hardhat Console
+
+To manually check balances via the Hardhat console:
+
+```bash
 npx hardhat console --network localhost
-> const token = await ethers.getContractAt("MyToken", process.env.REACT_APP_MY_TOKEN_ADDRESS)
-> await token.balanceOf("YOUR_WALLET_ADDRESS")
-👤 Author
-Name: Sergio Eguíluz
+```
 
-Email: sergioeguiluz614@gmail.com
+Inside the console:
 
-GitHub: your-username
+```js
+const token = await ethers.getContractAt("MyToken", process.env.REACT_APP_MY_TOKEN_ADDRESS);
+await token.balanceOf("YOUR_WALLET_ADDRESS");
+```
 
-📜 License
-MIT License - See LICENSE for details.
+## 📅 Gitignore
 
-🤝 Contributing
-Fork this repository
+```
+node_modules/
+artifacts/
+cache/
+build/
+.env
+```
 
-Create a feature branch (git checkout -b feature/AmazingFeature)
+## 📄 License
 
-Commit your changes (git commit -m 'Add amazing feature')
+This project is licensed under the **MIT License**.  
+See the LICENSE file for more details.
+
+## 👤 Author
+
+**Name:** Sergio Eguíluz  
+**Email:** sergioeguiluz614@gmail.com  
+**GitHub:** [@your-username](https://github.com/your-username)
+
+---
+
+**Happy coding! 🚀**
 
 Push to the branch (git push origin feature/AmazingFeature)
 
